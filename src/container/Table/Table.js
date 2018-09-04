@@ -20,22 +20,6 @@ class Table extends Component {
                     height: "800px" // This will force the table body to overflow and scroll, since there is not enough room
                 }}
                 className="-striped -highlight pa3"
-                getTdProps={(state, rowInfo, column, instance) => {
-                    return {
-                        onClick: (e, handleOriginal) => {
-                            {
-                                rowInfo.row.clicked = true;
-                                handleOriginal;
-                            }
-
-                            // IMPORTANT! React-Table uses onClick internally to trigger
-                            // events like expanding SubComponents and pivots.
-                            // By default a custom 'onClick' handler will override this functionality.
-                            // If you want to fire the original onClick handler, call the
-                            // 'handleOriginal' function.
-                        }
-                    };
-                }}
             />
         );
     }
