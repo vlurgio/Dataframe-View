@@ -137,10 +137,14 @@ class App extends Component {
         case "char count gt":
             return (filter, row) => {
                 try {
-                    let reg = new RegExp(String(filter.value[0]), "g");
+                    let index = filter.value[0].indexof(" ");
+                    let reg = new RegExp(
+                        String(filter.value.slice(0, index)),
+                        "g"
+                    );
                     return (
                         String(row[filter.id]).match(reg || []).length >=
-                            Number(filter.value.slice(2))
+                            Number(filter.value.slice(index + 1))
                     );
                 } catch (e) {
                     return false;
@@ -149,10 +153,14 @@ class App extends Component {
         case "char count lt":
             return (filter, row) => {
                 try {
-                    let reg = new RegExp(String(filter.value[0]), "g");
+                    let index = filter.value[0].indexof(" ");
+                    let reg = new RegExp(
+                        String(filter.value.slice(0, index)),
+                        "g"
+                    );
                     return (
                         String(row[filter.id]).match(reg || []).length <=
-                            Number(filter.value.slice(2))
+                            Number(filter.value.slice(index + 1))
                     );
                 } catch (e) {
                     return false;
