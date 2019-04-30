@@ -12,8 +12,8 @@ state = {}
 
 @app.route('/create', methods=["POST"])
 def createFrame():
-    data = StringIO(request.json["data"])
-    state["frame"] = pd.read_csv(data, index_col=0)
+    data = StringIO(request.json["data"], '\r')
+    state["frame"] = pd.read_csv(data, engine="python")
     formatFrame()
     return jsonify(formatFrame())
 

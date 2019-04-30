@@ -123,6 +123,20 @@ class App extends Component {
                     return false;
                 }
             };
+        case "length lt gt":
+            return (filter, row) => {
+                try {
+                    let index = filter.value.indexOf(" ");
+                    let lt = filter.value.slice(0, index);
+                    let gt = filter.value.slice(index + 1);
+                    return (
+                        String(row[filter.id]).length >= Number(lt) &&
+                            String(row[filter.id]).length <= Number(gt)
+                    );
+                } catch (e) {
+                    return false;
+                }
+            };
         case "case":
             return (filter, row) => {
                 try {

@@ -58,6 +58,9 @@ class FilterBar extends Component {
                                 <Radio value="length lt" />
                                 <span> Length (Less Than) </span>
                                 <br />
+                                <Radio value="length lt gt" />
+                                <span> Length min, max </span>
+                                <br />
                                 <Radio value="char count lt" />
                                 <span> Character Count (Less Than)* </span>
                                 <br />
